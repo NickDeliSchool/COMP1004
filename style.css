@@ -1,34 +1,42 @@
 
+
+body {
+
+
+background-color: #EAEAEA;
+
+}
+
 .Account{
 
-
-
+    background-color: #CCE6D9;
 
 }
 
 .Day {
 
-
+    
 
 }
 
 .Day-header {
 
-
+    background-color: #E4DCE6;
 
 }
 
 .Day-content {
 
+    background-color: #BBD8DF;
 
 
 }
 
 .Hour {
 
+ 
 
 
-    
 }
 
 .Left-day-button {
@@ -45,19 +53,20 @@
 
 .Notes {
 
-
+  background-color: #F5F5DC;
 
 }
 
 .Note{
 
-
+ background-color: #F4D9E9;
 
 
 }
 
 .Events {
 
+background-color: #D2B48C;
 
 
 }
