@@ -9,9 +9,15 @@ background-color: #f7f9ed;
 
 .Account{
 
-    background-color: #CCE6D9;
+    background-color: #87a970;
 
 }
+
+.Notes {
+
+    background-color: #87a970;
+  
+  }
 
 .Day {
 
@@ -21,13 +27,13 @@ background-color: #f7f9ed;
 
 .Day-header {
 
-    background-color: #E4DCE6;
+    background-color: #d1bd99;
 
 }
 
 .Day-content {
 
-    background-color: #BBD8DF;
+    background-color: #d1bd99;
 
 
 }
@@ -35,33 +41,22 @@ background-color: #f7f9ed;
 .Hour {
 
  
-
+    background-color: #d1bd99;
 
 }
 
 .Left-day-button {
 
-
+    background-color: #b3a480;
 }
 
 .Right-day-button {
 
-
-
-}
-
-.Notes {
-
-  background-color: #F5F5DC;
+    background-color: #b3a480
 
 }
 
-.Note{
 
- background-color: #F4D9E9;
-
-
-}
 
 
 
