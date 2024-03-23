@@ -8,13 +8,13 @@ background-color: #f7f9ed;
 }
 
 .Account{
-
+    text-align: left;
     background-color: #87a970;
 
 }
 
 .Notes {
-
+    text-align: left;
     background-color: #87a970;
   
   }
@@ -27,12 +27,14 @@ background-color: #f7f9ed;
 
 .Day-header {
 
+    text-align: center;
     background-color: #d1bd99;
 
 }
 
 .Day-content {
 
+    text-align: center;
     background-color: #d1bd99;
 
 
@@ -40,7 +42,7 @@ background-color: #f7f9ed;
 
 .Hour {
 
- 
+    text-align: center  + 100px;
     background-color: #d1bd99;
 
 }
