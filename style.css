@@ -3,7 +3,7 @@
 body {
 
 
-background-color: #EAEAEA;
+background-color: #f7f9ed;
 
 }
 
@@ -42,7 +42,6 @@ background-color: #EAEAEA;
 .Left-day-button {
 
 
-
 }
 
 .Right-day-button {
@@ -64,16 +63,5 @@ background-color: #EAEAEA;
 
 }
 
-.Events {
 
-background-color: #D2B48C;
-
-
-}
-
-.Event{
-
-
-    
-}
 
