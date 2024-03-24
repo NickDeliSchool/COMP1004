@@ -92,7 +92,16 @@ padding: 5px;
     border-radius: 5px;
 }
 
+#editNotes {
 
+    width: 200px; /* Set width of the editable area */
+        height: 100px; /* Set height of the editable area */
+        border: 1px solid #ccc; /* Add a border */
+        padding: 10px; /* Add padding to create space between text and border */
+        outline: none; /* Remove default focus outline */
+
+
+}
 
 
 
