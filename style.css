@@ -7,16 +7,21 @@ background-color: #f7f9ed;
 
 }
 
-.Account{
+.Account {
     text-align: left;
     background-color: #87a970;
-
+    border-radius: 5px; 
+    padding: 20px; 
+    width: 300px; 
+    height: 50px; 
+    margin-top: 10px; 
+    margin-right: 1150px; 
 }
 
 .Notes {
     text-align: left;
     background-color: #87a970;
-  
+    border-radius: 5px;
   }
 
 .Day {
@@ -29,33 +34,40 @@ background-color: #f7f9ed;
 
     text-align: center;
     background-color: #d1bd99;
-
+    border-radius: 5px;
 }
 
 .Day-content {
 
     text-align: center;
     background-color: #d1bd99;
-
+    border-radius: 5px;
 
 }
 
 .Hour {
 
-    text-align: center  + 100px;
+    text-align: center;
     background-color: #d1bd99;
 
 }
 
 .Left-day-button {
+   position: relative;
+   left: 10px;
+   margin-right: 100px;
 
-    background-color: #b3a480;
+    
+   background-color: #b3a480;
+   border-radius: 5px;
+   
 }
 
 .Right-day-button {
 
-    background-color: #b3a480
-
+    background-color: #b3a480;
+    display: flex;
+    border-radius: 5px;
 }
 
 
