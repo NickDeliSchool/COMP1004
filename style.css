@@ -72,8 +72,8 @@ font-family:'sans-serif';
 
     position: absolute;
     top: 10px; 
-    left: 560px; 
-    padding: 25px 250px;
+    left: 545px; 
+    padding: 20px 250px;
 
 
     font-weight: bolder;
@@ -89,17 +89,21 @@ font-family:'sans-serif';
 
 
     position: absolute;
-    top: 125px; 
-    left: 650px; 
+    top: 100px; 
+    left: 545px; 
 
-    width: 700px;
-    height: 560px;
+    width: 800px;
+    height: 597px;
     
 
     text-align: center;
     background-color: #d1bd99;
     border-radius: 2px;
     border: 1px solid black;
+
+    display: grid;
+    grid-template-columns: repeat(10,1); 
+    grid-gap: 1px;
 }
 
 .Hour {
