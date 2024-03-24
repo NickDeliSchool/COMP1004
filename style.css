@@ -37,7 +37,7 @@ padding: 5px;
 
 #editNotes {
 
-    position: absolute;
+    position: absolute; 
     top: 110px; 
     left: 10px; 
 
@@ -69,8 +69,8 @@ padding: 5px;
 
     position: absolute;
     top: 10px; 
-    left: 580px; 
-    padding: 35px 350px;
+    left: 660px; 
+    padding: 25px 250px;
 
 
     text-align: center;
@@ -83,7 +83,7 @@ padding: 5px;
 
 
     position: absolute;
-    top: 150px; 
+    top: 125px; 
     left: 650px; 
 
     padding: 50px 50px;
