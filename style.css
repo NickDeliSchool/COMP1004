@@ -67,6 +67,11 @@ padding: 5px;
 
 .Day-header {
 
+    position: absolute;
+    top: 110px; 
+    left: 10; 
+
+
     text-align: center;
     background-color: #d1bd99;
     border-radius: 5px;
@@ -75,6 +80,11 @@ padding: 5px;
 
 .Day-content {
 
+
+    position: absolute;
+    top: 110px; 
+    left: 10; 
+    
     text-align: center;
     background-color: #d1bd99;
     border-radius: 5px;
