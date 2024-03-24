@@ -35,10 +35,29 @@ padding: 5px;
 
 }
 
-.Notes {
+#editNotes {
+
+    position: absolute;
+    top: 110px; 
+    left: 10; 
 
 
-  }
+    text-align: left;
+    background-color: #87a970;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-top: 10px; 
+    margin-right: 1150px; 
+    outline: none;
+
+    height: 575px;
+    width: 360px;
+    max-width: 360px;
+    min-width: 360px;
+    max-height:575px;
+    min-height:575px;
+
+}
 
 .Day {
 
@@ -72,40 +91,51 @@ padding: 5px;
 
 .Day-button {
 
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-
+    margin-top: 60px; 
+    margin-right: 50px; 
+    margin-left: 400px;
+    
 }
+
 
 .Left-day-button {
 
     
-   background-color: #b3a480;
-   border-radius: 5px;
+   background-color: #d1bd99;
+   border-radius: 2px;
+   border: 2px solid black; 
+   padding: 175px 20px;
+   cursor: pointer; 
    
+}
+
+.Left-day-button:hover {
+
+    background-color: #b3a480;
+    
 }
 
 .Right-day-button {
 
 
+    background-color: #d1bd99;
+    border-radius: 2px;
+    border: 2px solid black; 
+    padding: 175px 20px; 
+    cursor: pointer; 
+}
+
+.Right-day-button:hover { 
+
     background-color: #b3a480;
-    border-radius: 5px;
-}
-
-#editNotes {
-
-    text-align: left;
-    background-color: #87a970;
-    border-radius: 5px;
-    border: 1px solid black;
-    margin-top: 10px; 
-    margin-right: 1150px; 
-    height: 500px;
-    outline: none;
 
 }
+
+
 
 
 
