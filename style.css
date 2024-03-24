@@ -36,14 +36,8 @@ padding: 5px;
 }
 
 .Notes {
-    text-align: left;
-    background-color: #87a970;
-    border-radius: 5px;
-    border: 1px solid black;
-    margin-top: 10px; 
-    margin-right: 1150px; 
-    height: 500px;
 
+    
   }
 
 .Day {
@@ -94,12 +88,14 @@ padding: 5px;
 
 #editNotes {
 
-    width: 200px; /* Set width of the editable area */
-        height: 100px; /* Set height of the editable area */
-        border: 1px solid #ccc; /* Add a border */
-        padding: 10px; /* Add padding to create space between text and border */
-        outline: none; /* Remove default focus outline */
-
+    text-align: left;
+    background-color: #87a970;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-top: 10px; 
+    margin-right: 1150px; 
+    height: 500px;
+    outline: none;
 
 }
 
