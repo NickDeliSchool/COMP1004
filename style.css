@@ -51,6 +51,7 @@ padding: 5px;
     text-align: center;
     background-color: #d1bd99;
     border-radius: 5px;
+    border: 1px solid black;
 }
 
 .Day-content {
@@ -58,20 +59,27 @@ padding: 5px;
     text-align: center;
     background-color: #d1bd99;
     border-radius: 5px;
-
+    border: 1px solid black;
 }
 
 .Hour {
 
     text-align: center;
     background-color: #d1bd99;
+    border: 1px solid black;
+}
+
+
+.Day-button {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 
 }
 
 .Left-day-button {
-   position: relative;
-   left: 10px;
-   margin-right: 100px;
 
     
    background-color: #b3a480;
@@ -81,8 +89,8 @@ padding: 5px;
 
 .Right-day-button {
 
+
     background-color: #b3a480;
-    display: flex;
     border-radius: 5px;
 }
 
