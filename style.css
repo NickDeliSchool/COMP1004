@@ -16,12 +16,34 @@ background-color: #f7f9ed;
     height: 50px; 
     margin-top: 10px; 
     margin-right: 1150px; 
+    border: 1px solid black;
+
+}
+
+.Name {
+
+border: 1px solid black;
+padding: 5px;
+        
+}
+
+.ID {
+
+
+    border: 1px solid black;
+    padding: 5px;
+
 }
 
 .Notes {
     text-align: left;
     background-color: #87a970;
     border-radius: 5px;
+    border: 1px solid black;
+    margin-top: 10px; 
+    margin-right: 1150px; 
+    height: 500px;
+
   }
 
 .Day {
