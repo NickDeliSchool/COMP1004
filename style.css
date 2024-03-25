@@ -3,7 +3,7 @@
 body {
 
 
-background-color: #f7f9ed;
+   background-color: #f7f9ed;
 
 }
 
@@ -22,9 +22,9 @@ background-color: #f7f9ed;
 
 .Name {
 
-border: 1px solid black;
-padding: 5px;
-font-family:'sans-serif';
+   border: 1px solid black;
+   padding: 5px;
+   font-family:'sans-serif';
         
 }
 
