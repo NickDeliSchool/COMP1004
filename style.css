@@ -62,12 +62,6 @@ font-family:'sans-serif';
 
 }
 
-.Day {
-
-    
-
-}
-
 .Day-header {
 
     position: absolute;
@@ -108,7 +102,7 @@ font-family:'sans-serif';
 
 .Hour {
 
-    text-align: right;
+    text-align:end;  
     background-color: #d1bd99;
     border: 1px solid black;
     font-family:'sans-serif';
