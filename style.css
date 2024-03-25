@@ -102,13 +102,13 @@ font-family:'sans-serif';
     border: 1px solid black;
 
     display: grid;
-    grid-template-columns: repeat(10,1); 
+    
    
 }
 
 .Hour {
 
-    text-align: center;
+    text-align: right;
     background-color: #d1bd99;
     border: 1px solid black;
     font-family:'sans-serif';
