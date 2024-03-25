@@ -106,8 +106,14 @@ font-family:'sans-serif';
     background-color: #d1bd99;
     border: 1px solid black;
     font-family:'sans-serif';
+    cursor: pointer;
 }
 
+.Hour:hover {
+
+    background-color: #b3a480;
+
+}
 
 .Day-button {
 
