@@ -103,7 +103,7 @@ font-family:'sans-serif';
 
     display: grid;
     grid-template-columns: repeat(10,1); 
-    grid-gap: 1px;
+   
 }
 
 .Hour {
