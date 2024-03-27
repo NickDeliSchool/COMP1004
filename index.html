@@ -149,7 +149,7 @@
 
     <input type="text" id="Email" placeholder="Email" >
 
-    <button onclick="AddApointment()" > Add </button>
+    <button onclick="AddApointment()" > Add/Edit </button>
 
     <button onclick="CloseAppointment()" > Cancel </button>
 
@@ -164,13 +164,13 @@
 
     <div class="Day-button" >
         
-        <button class="Left-day-button">
+        <button onclick="ChangeDateBackwards()" class="Left-day-button">
 
             <h>&lt;</h>
             
         </button>
 
-        <button class="Right-day-button">
+        <button onclick="ChangeDateForwards()" class="Right-day-button">
 
         <h>&gt;</h>
             
