@@ -10,7 +10,7 @@ body {
 .Login {
     
 position: absolute;
-
+display: block; 
 display: grid; 
 
 background-color: #87a970;
@@ -38,7 +38,7 @@ padding: 5px;
 .Register {
 
     position: absolute;
-
+    display:none; 
     display: grid; 
     
     background-color: #87a970;
@@ -57,9 +57,24 @@ padding: 5px;
     
     gap: 2px; 
     
-    z-index: 0;
+    z-index: 1;
     
     padding: 5px;
+
+}
+
+.register:hover {
+    
+cursor: pointer;
+
+
+}
+
+.login:hover {
+
+
+
+    cursor: pointer;
 
 }
 
