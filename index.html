@@ -14,7 +14,7 @@
 
 <body>
 
-<div class="Login" >
+<div id="LoginForm" class="Login" >
 
  <label for="name"> Dr. Name </label>
 
@@ -35,13 +35,13 @@
 
      OR
 
- <button class="register"> Register </button>
+ <button onclick=switchRegister_and_Login(LoginForm,RegisterForm)> Register </button>
 
 
 
 </div>
 
-<div class = "Register" > 
+<div id= "RegisterForm "class = "Register" > 
 
     Register 
 
@@ -55,7 +55,7 @@
 
     OR
 
-    <button class="login"> Login </button>
+    <button onclick="switchRegister_and_Login('LoginForm','RegisterForm')"> Login </button>
 
 
 </div>
