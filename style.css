@@ -11,10 +11,57 @@ body {
     
 position: absolute;
 
+display: grid; 
+
+background-color: #87a970;
+
+top: 235px ;
+left: 625px;
+
+width: 250px;
+height: 250px;
+
+text-align: center;
+
+font-family: sans-serif;
+
+border: 3px solid black;
+
+gap: 2px; 
+
+z-index: 1;
+
+padding: 5px; 
 
 }
 
+.Register {
 
+    position: absolute;
+
+    display: grid; 
+    
+    background-color: #87a970;
+    
+    top: 235px ;
+    left: 625px;
+    
+    width: 250px;
+    height: 250px;
+    
+    text-align: center;
+    
+    font-family: sans-serif;
+    
+    border: 3px solid black;
+    
+    gap: 2px; 
+    
+    z-index: 0;
+    
+    padding: 5px;
+
+}
 
 .Account {
     text-align: left;
