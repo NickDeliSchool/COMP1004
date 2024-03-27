@@ -4,7 +4,7 @@ body {
 
 
    background-color: #f7f9ed;
-
+   font-family: sans-serif
 }
 
 .Overlay {
@@ -207,6 +207,64 @@ cursor: pointer;
     background-color: #b3a480;
 
 }
+
+.Appointment {
+
+position: absolute;
+
+background-color: #87a970;
+
+top: 155px ;
+left: 535px;
+
+height: 475px;
+width: 500px;
+
+text-align: center;
+
+font-family: sans-serif;
+
+border: 3px solid black;
+
+gap: 2px; 
+
+z-index: 1;
+
+padding: 8px; 
+}
+
+.AppointmentInfo {
+
+    margin-left: 290px; 
+
+    display: grid;
+
+    gap: 5px;
+
+    max-width: 190px;
+
+}
+
+
+#EditAppointmentNotes {
+
+    position: left;
+    text-align: center;
+    background-color: #f7f9ed;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-top: -150px; 
+    margin-right: 300px; 
+    outline: none;
+
+    max-width: 250px;
+    min-width: 250px;
+    max-height:425px;
+    min-height:425px;
+
+
+}
+
 
 .Day-button {
 
