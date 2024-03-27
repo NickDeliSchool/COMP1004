@@ -56,6 +56,13 @@ function HideFunction() {
 
 }
 
+function DontHideFunction() {
+
+
+    document.getElementById("Overlay").style.display = "none";
+
+}
+
 
 
 
