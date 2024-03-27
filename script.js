@@ -63,6 +63,26 @@ function DontHideFunction() {
 
 }
 
+function OpenAppointment(){
+    
 
+
+
+}
+
+function CloseAppointment(){
+
+
+
+
+}
+
+function AddApointment(){
+
+
+
+
+    
+}
 
 
