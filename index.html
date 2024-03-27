@@ -1,193 +1,193 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
-<html>
+    <html>
 
-<head>
+    <head>
 
-    <title>Simple Calendar</title>
+        <title>Simple Calendar</title>
 
-    <link rel="stylesheet" href="style.css"> </link>
+        <link rel="stylesheet" href="style.css"> </link>
 
-    <script src="script.js"> </script>
+        <script src="script.js"> </script>
 
-</head>
+    </head>
 
-<body onload="DontHideFunction()"> 
-    
-<!-- onload="HideFunction()" CHANGE THIS AFTER YOU MAKE IT SO WHEN VERIFICATION IS ACCEPTED'OVERLAY CAN BE REMOVED -->
-
-
-<div id="Overlay" class="Overlay"> </div>
-
-
-<div id="LoginForm" class="Login" >
-
- <label for="name"> Dr. Name </label>
-
- <input type="text" id="name" placeholder="Enter your name" >
-
-
- <label for="ID"> Doctor ID </label>
-
- <input type="text" id= "ID" placeholder="Enter your ID" >
-
-
- <label for="password"> Password </label>
-
- <input type="text" id="password" placeholder="Enter your password"> 
-
-
- <button class="login"> Login </button>
-
-     OR
-
- <button onclick="switchRegister_and_Login('LoginForm','RegisterForm')"> Register </button>
-
-
-
-</div>
-
-<div id="RegisterForm"class = "Register" > 
-
-    Register 
-
-    <input type="text" id="Registername" placeholder="Enter your name" >
-
-    <input type="text" id= "RegisterID" placeholder="Enter your Doctor ID" >
-
-    <input type="text" id="Registerpassword" placeholder="Create your password"> 
-
-    <button class="register"> Register </button>
-
-    OR
-
-    <button onclick="switchRegister_and_Login('LoginForm','RegisterForm')" > Login </button>
-
-
-</div>
-
-
-
-<div class="Account">
-
- 
-
-    <div class="Name">
-
-       Name
-
-     </div>
-
-    <div class="ID">
-
-         ID
-
-     </div>
-
+    <body onload="DontHideFunction()" > 
         
-</div>
-    
-<div class="Day">
+    <!-- onload="HideFunction()" CHANGE THIS AFTER YOU MAKE IT SO WHEN VERIFICATION IS ACCEPTED'OVERLAY CAN BE REMOVED -->
 
-    <div class="Day-header">
-        
-        <h>Wednesday, March 27, 2024</h> 
-    
-    
+
+    <div id="Overlay" class="Overlay"> </div>
+
+
+    <div id="LoginForm" class="Login" >
+
+    <label for="name"> Dr. Name </label>
+
+    <input type="text" id="name" placeholder="Enter your name" >
+
+
+    <label for="ID"> Doctor ID </label>
+
+    <input type="text" id= "ID" placeholder="Enter your ID" >
+
+
+    <label for="password"> Password </label>
+
+    <input type="text" id="password" placeholder="Enter your password"> 
+
+
+    <button class="login"> Login </button>
+
+        OR
+
+    <button onclick="switchRegister_and_Login('LoginForm','RegisterForm')"> Register </button>
+
+
+
     </div>
 
-    <div class="Day-content">
+    <div id="RegisterForm"class = "Register" > 
 
-       <button class="Hour"> 01 AM</button>
-       <button class="Hour"> 02 AM</button>
-       <button class="Hour"> 03 AM</button>
-       <button class="Hour"> 04 AM</button>
-       <button class="Hour"> 05 AM</button>
-       <button class="Hour"> 06 AM</button>
-       <button class="Hour"> 07 AM</button>
-       <button class="Hour"> 08 AM</button>
-       <button class="Hour"> 09 AM</button>
-       <button class="Hour"> 10 AM</button>
-       <button class="Hour"> 11 AM</button>
-       <button class="Hour"> 12 PM</button>
-       <button class="Hour"> 1 PM</button>
-       <button class="Hour"> 2 PM</button>
-       <button class="Hour"> 3 PM</button>
-       <button class="Hour"> 4 PM</button>
-       <button class="Hour"> 5 PM</button>
-       <button class="Hour"> 6 PM</button>
-       <button class="Hour"> 7 PM</button>
-       <button class="Hour"> 8 PM</button>
-       <button class="Hour"> 9 PM</button>
-       <button class="Hour"> 10 PM</button>
-       <button class="Hour"> 11 PM</button>
-       <button class="Hour"> 12 AM</button>
+        Register 
+
+        <input type="text" id="Registername" placeholder="Enter your name" >
+
+        <input type="text" id= "RegisterID" placeholder="Enter your Doctor ID" >
+
+        <input type="text" id="Registerpassword" placeholder="Create your password"> 
+
+        <button class="register"> Register </button>
+
+        OR
+
+        <button onclick="switchRegister_and_Login('LoginForm','RegisterForm')" > Login </button>
+
 
     </div>
 
 
-</div>
 
-<div id="AppointmentForm" class="Appointment"> 
+    <div class="Account">
 
-Appointment 
-
-<div class="AppointmentInfo">  
-
-
-   <input type="text" id="PatientName" placeholder="Patient Name" >
-
-   <input type="text" id="DOB" placeholder="Date Of Birth [DD/MM/YYYY]" >
-
-   <input type="text" id="Gender" placeholder="Gender" >
-
-   <input type="text" id="Nationality" placeholder="Nationality" >
-
-   <input type="text" id="Race" placeholder="Race" >
-
-   <input type="text" id="Phone" placeholder="Phone" >
-
-   <input type="text" id="Email" placeholder="Email" >
-
-   <button onclick="AddApointment()" > Add </button>
-
-   <button onclick="CloseAppointment()" > Cancel </button>
-
-
-</div>
-
-
-<textarea id="EditAppointmentNotes" name="AppointmentNotes" placeholder="Write notes here..."></textarea>
-
-
-</div>
-
-<div class="Day-button" >
     
-    <button class="Left-day-button">
 
-        <h>&lt;</h>
+        <div class="Name">
+
+        Name
+
+        </div>
+
+        <div class="ID">
+
+            ID
+
+        </div>
+
+            
+    </div>
         
-    </button>
+    <div class="Day">
 
-    <button class="Right-day-button">
-
-       <h>&gt;</h>
+        <div class="Day-header">
+            
+            <h>Wednesday, March 27, 2024</h> 
         
-    </button>
+        
+        </div>
 
-</div>
+        <div class="Day-content">
 
-<div class="Notes">
+        <button class="Hour" onclick="OpenAppointment()"> 01 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 02 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 03 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 04 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 05 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 06 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 07 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 08 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 09 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 10 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 11 AM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 12 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 1 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 2 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 3 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 4 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 5 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 6 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 7 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 8 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 9 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 10 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 11 PM</button>
+        <button class="Hour" onclick="OpenAppointment()"> 12 AM</button>
 
-        <textarea id="editNotes" name="notes" placeholder="Write your notes here..."></textarea>
-
-    </id>
-    
-</div>
+        </div>
 
 
+    </div>
 
-</body>
+    <div  id="AppointmentForm" class="Appointment"> 
 
-</html>
+    Appointment 
+
+    <div class="AppointmentInfo">  
+
+
+    <input type="text" id="PatientName" placeholder="Patient Name" >
+
+    <input type="text" id="DOB" placeholder="Date Of Birth [DD/MM/YYYY]" >
+
+    <input type="text" id="Gender" placeholder="Gender" >
+
+    <input type="text" id="Nationality" placeholder="Nationality" >
+
+    <input type="text" id="Race" placeholder="Race" >
+
+    <input type="text" id="Phone" placeholder="Phone" >
+
+    <input type="text" id="Email" placeholder="Email" >
+
+    <button onclick="AddApointment()" > Add </button>
+
+    <button onclick="CloseAppointment()" > Cancel </button>
+
+
+    </div>
+
+
+    <textarea id="EditAppointmentNotes" name="AppointmentNotes" placeholder="Write notes here..."></textarea>
+
+
+    </div>
+
+    <div class="Day-button" >
+        
+        <button class="Left-day-button">
+
+            <h>&lt;</h>
+            
+        </button>
+
+        <button class="Right-day-button">
+
+        <h>&gt;</h>
+            
+        </button>
+
+    </div>
+
+    <div class="Notes">
+
+            <textarea id="editNotes" name="notes" placeholder="Write your notes here..."></textarea>
+
+        </id>
+        
+    </div>
+
+
+
+    </body>
+
+    </html>
