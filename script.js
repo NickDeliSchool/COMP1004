@@ -1,22 +1,16 @@
 
-   function LoginUser(){ // Event listener that calls function for login verification
+   function LoginUser(Name,ID,password){ // Event listener that calls function for login verification
 
-        var name = document.getElementById('name').value
-        var ID = document.getElementById('ID').value
-        var password = document.getElementById('password').value
 
         CloseVerification();
-        HideFunction();
+        DontHideFunction();
     }
 
-    function RegisterUser(){ // Event listener that calls function for registration process
-        
-        var register_name = document.getElementById('Registername').value
-        var register_ID = document.getElementById('RegisterID').value
-        var register_password = document.getElementById('Registerpassword').value
+    function RegisterUser(Registername, RegisterId, Registerpassword){ // Event listener that calls function for registration process
+
 
         CloseVerification();
-        HideFunction();
+        DontHideFunction();
     }
 
     function switchRegister_and_Login(LoginForm,RegisterForm) {
@@ -71,16 +65,16 @@
     function CloseVerification(){
 
 
-        document.getElementById(RegisterForm).style.display = 'none';
+        document.getElementById('RegisterForm').style.display = 'none';
 
 
-        document.getElementById(LoginForm).style.display = 'none';
+        document.getElementById('LoginForm').style.display = 'none';
         
     }
 
     function HideFunction() {
 
-        document.getElementById("Overlay").style.display = "block";
+        document.getElementById('Overlay').style.display = 'block';
 
 
     }
@@ -88,20 +82,20 @@
     function DontHideFunction() {
 
 
-        document.getElementById("Overlay").style.display = "none";
+        document.getElementById('Overlay').style.display = 'none';
 
     }
 
     function OpenAppointment(){
         
-        document.getElementById("AppointmentForm").style.display = "block";
+        document.getElementById('AppointmentForm').style.display = 'block';
 
 
     }
 
     function CloseAppointment(){
 
-        document.getElementById("AppointmentForm").style.display = "none";
+        document.getElementById('AppointmentForm').style.display = 'none';
 
 
     }
