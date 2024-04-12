@@ -12,7 +12,7 @@
 
         </head>
 
-        <body onload="DontHideFunction()" > 
+        <body onload="HideFunction()" > 
             
         <!-- onload="HideFunction()" CHANGE THIS AFTER YOU MAKE IT SO WHEN VERIFICATION IS ACCEPTED'OVERLAY CAN BE REMOVED -->
 
@@ -37,7 +37,7 @@
         <input type="text" id="password" placeholder="Enter your password"> 
 
 
-        <button class="login"> Login </button>
+        <button id="loginbutton" onclick="LoginUser('name','ID','password')"> Login </button>
 
             OR
 
@@ -57,7 +57,7 @@
 
             <input type="text" id="Registerpassword" placeholder="Create your password"> 
 
-            <button class="register"> Register </button>
+            <button id="registerbutton" onclick="RegisterUser('Registername','RegisterID','Registerpassword')"> Register </button>
 
             OR
 

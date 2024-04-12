@@ -1,4 +1,21 @@
 
+    document.getElementById('loginbutton', function LoginUser(Name, ID, Password){
+
+
+
+
+
+        CloseVerification();
+        DontHideFunction();
+    })
+
+    document.getElementById.apply('registerbutton', function RegisterUser(RegisterName, RegisterID, RegisterPassword){
+        
+
+
+        CloseVerification();
+        DontHideFunction();
+    })
 
     function switchRegister_and_Login(LoginForm,RegisterForm) {
 
@@ -49,7 +66,7 @@
     
     }
 
-    function CloseVerfication(){
+    function CloseVerification(){
 
 
         document.getElementById(RegisterForm).style.display = 'none';
@@ -114,7 +131,7 @@
     }
 
 
-function jsonDownload() {
+  function jsonDownload() {
 
 
 
