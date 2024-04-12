@@ -19,30 +19,28 @@
 
             <div id="Overlay" class="Overlay"> </div>
 
-
             <div id="LoginForm" class="Login" >
 
             <label for="name"> Dr. Name </label>
 
-            <input type="text" id="name" placeholder="Enter your name" >
+            <input type="text" id="name" placeholder="Enter your name" > </input>
 
 
             <label for="ID"> Doctor ID </label>
 
-        <input type="text" id= "ID" placeholder="Enter your ID" >
+        <input type="text" id= "ID" placeholder="Enter your ID" > </input>
 
 
         <label for="password"> Password </label>
 
-        <input type="text" id="password" placeholder="Enter your password"> 
+        <input type="text" id="password" placeholder="Enter your password">  </input>
 
 
-        <button  onclick="LoginUser();"> Login </button>
+        <button onclick="LoginUser('name','ID','password')"> Login </button>
 
             OR
 
-        <button  onclick="switchRegister_and_Login('LoginForm','RegisterForm')"> Register </button>
-
+        <button onclick="switchRegister_and_Login('LoginForm','RegisterForm')"> Register </button>
 
 
         </div>
@@ -51,17 +49,17 @@
 
             Register 
 
-            <input type="text" id="Registername" placeholder="Enter your name" >
+            <input type="text" id="Registername" placeholder="Enter your name" > </input>
 
-            <input type="text" id= "RegisterID" placeholder="Enter your Doctor ID" >
+            <input type="text" id= "RegisterID" placeholder="Enter your Doctor ID" > </input>
 
-            <input type="text" id="Registerpassword" placeholder="Create your password"> 
+            <input type="text" id="Registerpassword" placeholder="Create your password"> </input>
 
-            <button  onclick="RegisterUser();"> Register </button>
+            <button onclick="RegisterUser('Registername','RegisterID','Registerpassword')"> Register </button>
 
             OR
 
-            <button  onclick="switchRegister_and_Login('LoginForm','RegisterForm')" > Login </button>
+            <button onclick="switchRegister_and_Login('LoginForm','RegisterForm')" > Login </button>
 
 
         </div>
