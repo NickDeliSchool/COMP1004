@@ -1,21 +1,23 @@
 
-    document.getElementById('loginbutton', function LoginUser(Name, ID, Password){
+   function LoginUser(){ // Event listener that calls function for login verification
 
-
-
-
+        var name = document.getElementById('name').value
+        var ID = document.getElementById('ID').value
+        var password = document.getElementById('password').value
 
         CloseVerification();
-        DontHideFunction();
-    })
+        HideFunction();
+    }
 
-    document.getElementById.apply('registerbutton', function RegisterUser(RegisterName, RegisterID, RegisterPassword){
+    function RegisterUser(){ // Event listener that calls function for registration process
         
-
+        var register_name = document.getElementById('Registername').value
+        var register_ID = document.getElementById('RegisterID').value
+        var register_password = document.getElementById('Registerpassword').value
 
         CloseVerification();
-        DontHideFunction();
-    })
+        HideFunction();
+    }
 
     function switchRegister_and_Login(LoginForm,RegisterForm) {
 
