@@ -5,6 +5,7 @@
   "ID" : "1",
   "Password": "pass",
   "Notes": "",
+  "DateLastOpened": "2024-01-01",
   "Years": {
 
      "YearNo" : "2024",
