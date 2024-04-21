@@ -10,6 +10,8 @@
 
             <script src="script.js" defer> </script>
 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
         </head>
 
         <body onload="OverlayOnFunction()" > 
@@ -88,6 +90,10 @@
         </div>
 
         <button id="savebutton"> Save </button>
+
+        <button id="logUploadButton"> Upload Logs</button>
+
+        <button id="logDownloadButton"> Download Logs</button>
             
         <div class="Day">
 
@@ -101,17 +107,17 @@
             <div class="Day-content">
 
             
-            <button  class="Hour" onclick="OpenAppointment()"> 08 AM</button>
-            <button  class="Hour" onclick="OpenAppointment()"> 09 AM</button>
-            <button  class="Hour" onclick="OpenAppointment()"> 10 AM</button>
-            <button  class="Hour" onclick="OpenAppointment()"> 11 AM</button>
-            <button  class="Hour" onclick="OpenAppointment()"> 12 PM</button>
-            <button  class="Hour" onclick="OpenAppointment()"> 1 PM</button>
-            <button  class="Hour" onclick="OpenAppointment()"> 2 PM</button>
-            <button  class="Hour" onclick="OpenAppointment()"> 3 PM</button>
-            <button  class="Hour" onclick="OpenAppointment()"> 4 PM</button>
-            <button  class="Hour" onclick="OpenAppointment()"> 5 PM</button>
-            <button  class="Hour" onclick="OpenAppointment()"> 6 PM</button>
+            <button  class="Hour" id="Hour8" onclick="OpenAppointment('8AM')"> 08 AM</button>
+            <button  class="Hour" id="Hour9" onclick="OpenAppointment('9AM')"> 09 AM</button>
+            <button  class="Hour" id="Hour10" onclick="OpenAppointment('10AM')"> 10 AM</button>
+            <button  class="Hour" id="Hour11"  onclick="OpenAppointment('11AM')"> 11 AM</button>
+            <button  class="Hour" id="Hour12" onclick="OpenAppointment('12PM')"> 12 PM</button>
+            <button  class="Hour" id="Hour1"  onclick="OpenAppointment('1PM')"> 1 PM</button>
+            <button  class="Hour" id="Hour2"  onclick="OpenAppointment('2PM')"> 2 PM</button>
+            <button  class="Hour" id="Hour3"  onclick="OpenAppointment('3PM')"> 3 PM</button>
+            <button  class="Hour" id="Hour4"  onclick="OpenAppointment('4PM')"> 4 PM</button>
+            <button  class="Hour" id="Hour5"  onclick="OpenAppointment('5PM')"> 5 PM</button>
+            <button  class="Hour" id="Hour6"  onclick="OpenAppointment('6PM')"> 6 PM</button>
 
 
             </div>
@@ -140,7 +146,7 @@
 
         <input type="text" id="Email" placeholder="Email" >
 
-        <button  onclick="AddApointment()" > Add/Edit </button>
+        <button  id = "addAppointmentButton" > Add/Edit </button>
 
         <button  onclick="CloseAppointment()" > Cancel </button>
 
