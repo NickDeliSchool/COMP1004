@@ -1,8 +1,9 @@
-        var  data = {}; // Data that will be used throughout the execution of the program and then download when the autodownload happens
+        var  data = {}; // Data that will be used throughout the execution of the program and then downloaded
         var appointmentDetails; // Global appointmentDetails variable so it doesn't get affected by eventListener
         var currentDate; // Global currentDate variable so it doesn't get affected by eventListener
         var HourSelected; // Global Hour Selected variable so it doesn't get affected by eventListener
-
+        var logs_exist = false; // Global check to see if logs have been created or exist in any way in order to start log tracking process
+        var logs = {}; // Log object that will be used throughout the execution of the program and then downloaded
 
 
             document.getElementById('loginbutton').addEventListener('click', function() {
@@ -14,6 +15,14 @@
                 } 
             });
 
+            document.getElementById('logUploadButton').addEventListener('click', function() {
+
+
+                if (document.getElementById('jsonfile').files.length > 0) {
+                    
+                    UploadLogs();
+                } 
+            });
 
 
     document.getElementById('registerbutton').addEventListener('click', RegisterUser);
@@ -41,6 +50,7 @@
             if ((name === jsonusername)&&(ID === jsonID)&&(password === jsonpassword)) {
                 CloseVerification();
                 OverlayOffFunction();
+                LogTracker(false, true);
                 console.log("Login complete");
 
             } else {
@@ -92,6 +102,7 @@
             LoadSite();
             CloseVerification();
             OverlayOffFunction();
+            CreateLogs();
         }
     }
 
@@ -357,6 +368,8 @@
             appointmentDetails.Phone = phone;
             appointmentDetails.Email = email;
             appointmentDetails.AppointmentNotes = appointmentnotes;
+
+            LogTracker(true, false);
 }
 
     function CloseAppointment(){
@@ -42209,5 +42222,168 @@
 
 
 
+
+    }
+
+    function LogTracker(appointmentAdded,user_login) {
+
+       if (logs_exist === false) {
+        
+        console.log("Log tracker won't start since no log file has been uploaded or no logs created");
+
+
+       }
+
+        var currentDate =  new Date();
+
+        var currentDay = currentDate.getDate();
+
+        var currentMonth = currentDate.getMonth() + 1; 
+
+        var currentYear = currentDate.getFullYear();
+
+        var currentHour = currentDate.getHours();
+
+        var currentMinute = currentDate.getMinutes();
+
+        console.log("Current date: " + currentDay + "/" + currentMonth + "/" + currentYear);
+
+       if ( appointmentAdded === true) {
+
+        logs.Logs.push("Appointment Added: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + "/" + currentMinute);
+        console.log("Appointment Log Added");
+       }
+
+       if (   notesAdded === true) {
+
+        logs.Logs.push("Notes Altered/Added: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + "/" + currentMinute);
+        console.log("Notes Log Added");
+        
+       }
+
+       if (  user_login === true) {
+
+        logs.Logs.push("Login Occured: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + "/" + currentMinute);
+        console.log("Login Log Added");
+        
+       }
+    }
+
+    function UploadLogs(){
+
+        logs_exist = true;
+
+        const jsonfileselected2 = document.getElementById('jsonfile').files[0];
+
+         if (!jsonfileselected2) {
+            
+            console.log("No file was selected");
+            return 0;
+            
+        }
+
+        const jsonfilereader2 = new FileReader();
+
+        jsonfilereader2.onload = function(event) {
+
+            try {
+
+               // var encryptedJson = event.target.result;
+
+                //console.log("Ecnrypted JSON collected");
+                
+                //var decryptedJson = CryptoJS.AES.decrypt(encryptedJson, "password").toString(CryptoJS.enc.Utf8);
+
+                //const jsonfiledata = JSON.parse(decryptedJson);
+
+                const jsonfiledata2 = JSON.parse(event.target.result);
+
+                console.log("Data = jsonfiledata");
+
+                logs = jsonfiledata2; 
+
+
+                LoadSite();
+
+            } catch (error) {
+                console.error('Error parsing JSON file:', error);
+            }
+        };
+
+        jsonfilereader2.readAsText(jsonfileselected2);
+    }
+
+    function DownloadLogs(){
+
+        logs_exist = true;
+
+        var logs_String = JSON.stringify(logs);
+
+        //var encryptedJsonLogs = CryptoJS.AES.encrypt(jsonString, "password");
+
+        var blob = new Blob([logs_String], { type: "application/json" });
+        
+  
+        var link = document.createElement("a");
+        
+  
+        link.href = URL.createObjectURL(blob);
+        
+   
+        link.download = "Logs.json";
+        
+ 
+        document.body.appendChild(link);
+        
+ 
+        link.click();
+
+        document.body.removeChild(link);
+
+
+    }
+
+    function CreateLogs(){
+
+        logs_exist = true;
+
+        logs = { "Logs" : [] };
+
+        var currentDate =  new Date();
+
+        var currentDay = currentDate.getDate();
+
+        var currentMonth = currentDate.getMonth() + 1; 
+
+        var currentYear = currentDate.getFullYear();
+
+
+
+        console.log("Current date: " + currentDay + "/" + currentMonth + "/" + currentYear);
+
+        logs.Logs.push("Logs created at: " + currentDay + "/" + currentMonth + "/" + currentYear);
+
+        var logs_string = JSON.stringify(logs);
+
+        //var encryptedJsonLogs = CryptoJS.AES.encrypt(jsonString, "password");
+  
+        var blob = new Blob([logs_string], { type: "application/json" });
+          
+    
+        var link = document.createElement("a");
+          
+    
+        link.href = URL.createObjectURL(blob);
+          
+     
+        link.download = "Logs.json";
+          
+   
+        document.body.appendChild(link);
+          
+   
+        link.click();
+  
+        document.body.removeChild(link);
 
     }
