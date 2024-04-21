@@ -346,10 +346,19 @@
         position: absolute;
         background-color: #87a970;
         padding: 10px; 
-        top: 105px; 
+        top: 145px; 
         right: 55px; 
     
     
         }
+
+    #jsonfile2 {
+
+        position: absolute;
+        top: 105px; 
+        left: 1350px;
+    
+        }
+
 
 
