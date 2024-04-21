@@ -3,7 +3,8 @@
         var currentDate; // Global currentDate variable so it doesn't get affected by eventListener
         var HourSelected; // Global Hour Selected variable so it doesn't get affected by eventListener
         var logs_exist = false; // Global check to see if logs have been created or exist in any way in order to start log tracking process
-        var logs = {"Logs" : [""]}; // Log object that will be used throughout the execution of the program and then downloaded
+        var logs = {"Logs" : []}; // Log object that will be used throughout the execution of the program and then downloaded
+        var logs_string; // Glboal logs_string so it isn't affected 
 
             document.getElementById('loginbutton').addEventListener('click', function() {
 
@@ -49,7 +50,12 @@
             if ((name === jsonusername)&&(ID === jsonID)&&(password === jsonpassword)) {
                 CloseVerification();
                 OverlayOffFunction();
-                LogTracker(false, true);
+
+                if (logs_exist === true) {
+
+                    LogTracker(false, true);
+                }
+
                 console.log("Login complete");
 
             } else {
@@ -189,7 +195,7 @@
 
             
             document.getElementById('dayheader').textContent=data.User.DateLastOpened;
-            document.getElementById('AccountName').textContent= "Dr. " + data.User.Username;
+            document.getElementById('AccountName').textContent=data.User.Username;
             document.getElementById('AccountID').textContent=data.User.ID;
             document.getElementById('editNotes').textContent=data.User.Notes;
             console.log("Successfully loaded site");
@@ -42241,9 +42247,9 @@
 
         var currentYear = currentDate.getFullYear();
 
-        var currentHour = currentDate.getHours();
+        var currentHour = currentDate.getHours() + 1;
 
-        var currentMinute = currentDate.getMinutes();2
+        var currentMinute = currentDate.getMinutes();
 
         console.log("Current date: " + currentDay + "/" + currentMonth + "/" + currentYear);
 
@@ -42255,7 +42261,7 @@
 
        if (  user_login === true) {
 
-        logs.Logs.push("Login Occured: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + "/" + currentMinute);
+        logs.Logs.push("Login Occured: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + ":" + currentMinute);
         console.log("Login Log Added");
         
        }
@@ -42279,21 +42285,10 @@
         jsonfilereader2.onload = function(event2) {
 
             try {
-
-               // var encryptedJson = event.target.result;
-
-                //console.log("Ecnrypted JSON collected");
                 
-                //var decryptedJson = CryptoJS.AES.decrypt(encryptedJson, "password").toString(CryptoJS.enc.Utf8);
-
-                //const jsonfiledata = JSON.parse(decryptedJson);
-
                 const jsonfiledata2 = JSON.parse(event2.target.result);
 
                 logs = jsonfiledata2; 
-
-
-                LoadSite();
 
             } catch (error) {
                 console.error('Error parsing JSON file:', error);
@@ -42303,15 +42298,13 @@
         jsonfilereader2.readAsText(jsonfileselected2);
     }
 
-    function DownloadLogs(){
+    document.getElementById('logDownloadButton').addEventListener('click',function DownloadLogs(){
 
         logs_exist = true;
 
-        var logs_String = JSON.stringify(logs);
+        var logs_string = JSON.stringify(logs);
 
-        //var encryptedJsonLogs = CryptoJS.AES.encrypt(jsonString, "password");
-
-        var blob = new Blob([logs_String], { type: "application/json" });
+        var blob = new Blob([logs_string], { type: "application/json" });
         
   
         var link = document.createElement("a");
@@ -42331,13 +42324,13 @@
         document.body.removeChild(link);
 
 
-    }
+    });
 
     function CreateLogs(){
 
         logs_exist = true;
 
-        logs = { "Logs" : [""] };
+        logs = { "Logs" : [] };
 
         var currentDate =  new Date();
 
@@ -42354,8 +42347,6 @@
         logs.Logs.push("Logs created at: " + currentDay + "/" + currentMonth + "/" + currentYear);
 
         var logs_string = JSON.stringify(logs);
-
-        //var encryptedJsonLogs = CryptoJS.AES.encrypt(jsonString, "password");
   
         var blob = new Blob([logs_string], { type: "application/json" });
           
