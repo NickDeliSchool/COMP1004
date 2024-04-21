@@ -3,8 +3,7 @@
         var currentDate; // Global currentDate variable so it doesn't get affected by eventListener
         var HourSelected; // Global Hour Selected variable so it doesn't get affected by eventListener
         var logs_exist = false; // Global check to see if logs have been created or exist in any way in order to start log tracking process
-        var logs = {}; // Log object that will be used throughout the execution of the program and then downloaded
-
+        var logs = {"Logs" : [""]}; // Log object that will be used throughout the execution of the program and then downloaded
 
             document.getElementById('loginbutton').addEventListener('click', function() {
 
@@ -42244,7 +42243,7 @@
 
         var currentHour = currentDate.getHours();
 
-        var currentMinute = currentDate.getMinutes();
+        var currentMinute = currentDate.getMinutes();2
 
         console.log("Current date: " + currentDay + "/" + currentMonth + "/" + currentYear);
 
@@ -42252,13 +42251,6 @@
 
         logs.Logs.push("Appointment Added: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + "/" + currentMinute);
         console.log("Appointment Log Added");
-       }
-
-       if (   notesAdded === true) {
-
-        logs.Logs.push("Notes Altered/Added: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + "/" + currentMinute);
-        console.log("Notes Log Added");
-        
        }
 
        if (  user_login === true) {
@@ -42284,7 +42276,7 @@
 
         const jsonfilereader2 = new FileReader();
 
-        jsonfilereader2.onload = function(event) {
+        jsonfilereader2.onload = function(event2) {
 
             try {
 
@@ -42296,9 +42288,7 @@
 
                 //const jsonfiledata = JSON.parse(decryptedJson);
 
-                const jsonfiledata2 = JSON.parse(event.target.result);
-
-                console.log("Data = jsonfiledata");
+                const jsonfiledata2 = JSON.parse(event2.target.result);
 
                 logs = jsonfiledata2; 
 
@@ -42347,7 +42337,7 @@
 
         logs_exist = true;
 
-        logs = { "Logs" : [] };
+        logs = { "Logs" : [""] };
 
         var currentDate =  new Date();
 
