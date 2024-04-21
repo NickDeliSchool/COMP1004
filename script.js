@@ -6,7 +6,7 @@
         var logs = {"Logs" : []}; // Log object that will be used throughout the execution of the program and then downloaded
         var logs_string; // Glboal logs_string so it isn't affected 
 
-            document.getElementById('loginbutton').addEventListener('click', function() {
+           count =  document.getElementById('loginbutton').addEventListener('click', function() {
 
 
                 if (document.getElementById('jsonfile').files.length > 0) {
@@ -15,10 +15,10 @@
                 } 
             });
 
-            document.getElementById('logUploadButton').addEventListener('click', function() {
+            count  = document.getElementById('logUploadButton').addEventListener('click', function() {
 
 
-                if (document.getElementById('jsonfile').files.length > 0) {
+                if (document.getElementById('jsonfile').files.length > 1) {
                     
                     UploadLogs();
                 } 
@@ -42271,7 +42271,7 @@
 
         logs_exist = true;
 
-        const jsonfileselected2 = document.getElementById('jsonfile').files[0];
+        const jsonfileselected2 = document.getElementById('jsonfile').files[1];
 
          if (!jsonfileselected2) {
             
@@ -42285,7 +42285,7 @@
         jsonfilereader2.onload = function(event2) {
 
             try {
-                
+
                 const jsonfiledata2 = JSON.parse(event2.target.result);
 
                 logs = jsonfiledata2; 
