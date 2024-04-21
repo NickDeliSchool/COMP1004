@@ -6,7 +6,10 @@
         var logs = {"Logs" : []}; // Log object that will be used throughout the execution of the program and then downloaded
         var logs_string; // Glboal logs_string so it isn't affected 
 
-           count =  document.getElementById('loginbutton').addEventListener('click', function() {
+        let logsUploaded = false;
+
+
+          document.getElementById('loginbutton').addEventListener('click', function() {
 
 
                 if (document.getElementById('jsonfile').files.length > 0) {
@@ -15,12 +18,14 @@
                 } 
             });
 
-            count  = document.getElementById('logUploadButton').addEventListener('click', function() {
+            document.getElementById('logUploadButton').addEventListener('click', function uploadlistener() {
 
 
-                if (document.getElementById('jsonfile').files.length > 1) {
+                if ( !logsUploaded && document.getElementById('jsonfile').files.length > 1) {
                     
                     UploadLogs();
+
+                    document.getElementById('logUploadButton').removeEventListener('click', function uploadlistener(){});
                 } 
             });
 
@@ -42255,14 +42260,18 @@
 
        if ( appointmentAdded === true) {
 
-        logs.Logs.push("Appointment Added: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + "/" + currentMinute);
+        logs.Logs.push("Appointment Added: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + ":" + currentMinute);
         console.log("Appointment Log Added");
+
+
        }
 
        if (  user_login === true) {
 
         logs.Logs.push("Login Occured: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + ":" + currentMinute);
         console.log("Login Log Added");
+
+
         
        }
     }
@@ -42290,6 +42299,8 @@
 
                 logs = jsonfiledata2; 
 
+                logsUploaded = true;
+
             } catch (error) {
                 console.error('Error parsing JSON file:', error);
             }
@@ -42298,7 +42309,7 @@
         jsonfilereader2.readAsText(jsonfileselected2);
     }
 
-    document.getElementById('logDownloadButton').addEventListener('click',function DownloadLogs(){
+    document.getElementById('logDownloadButton').addEventListener('click',function (){
 
         logs_exist = true;
 
@@ -42323,6 +42334,7 @@
 
         document.body.removeChild(link);
 
+        document.getElementById('logUploadButton').removeEventListener('click', function (){});
 
     });
 
