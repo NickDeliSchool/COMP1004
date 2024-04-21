@@ -330,5 +330,26 @@
 
     }
 
+    #logUploadButton {
+
+        position: absolute;
+        background-color: #87a970;
+        padding: 10px; 
+        top: 60px; 
+        right: 55px; 
+
+
+        }
+
+    #logDownloadButton {
+
+        position: absolute;
+        background-color: #87a970;
+        padding: 10px; 
+        top: 105px; 
+        right: 55px; 
+    
+    
+        }
 
 
