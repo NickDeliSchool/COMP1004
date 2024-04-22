@@ -42250,7 +42250,7 @@
         console.log("Current date: " + currentDay + "/" + currentMonth + "/" + currentYear);
 
 
-        var appointmentLog = "Appointment Added/Edited On: " + currentYear + "/" + currentMonth + "/" + currentDay + "/" + currentHour + ":" + currentMinute + "  || Appointment Day/Hour-Selected: " + currentDate  + "/" + HourSelected;
+        var appointmentLog = "Appointment Added/Edited On: " + currentDay + "/" + currentMonth + "/" + currentYear + "/" + currentHour + ":" + currentMinute + "  || Appointment Day/Hour-Selected: " + currentDate  + "/" + HourSelected;
         if (!logs.Logs.includes(appointmentLog)) {
             logs.Logs.push(appointmentLog);
             console.log("Appointment Log Added");
@@ -42274,8 +42274,19 @@
   
         link.href = URL.createObjectURL(blob);
         
+
+        var currentDate4 =  new Date();
+
+        var currentDay = currentDate4.getDate();
+
+        var currentMonth = currentDate4.getMonth() + 1; 
+
+        var currentYear = currentDate4.getFullYear();
+
+        var currentHour = currentDate4.getHours();
+
    
-        link.download = "Logs.json";
+        link.download = "Logs-H/D/M/Y" + currentHour + "-" + currentDay + "-" + currentMonth + "-" + currentYear +".json";
         
  
         document.body.appendChild(link);
@@ -42295,19 +42306,21 @@
 
         logs = { "Logs" : [] };
 
-        var currentDate =  new Date();
+        var currentDate3 =  new Date();
 
-        var currentDay = currentDate.getDate();
+        var currentDay = currentDate3.getDate();
 
-        var currentMonth = currentDate.getMonth() + 1; 
+        var currentMonth = currentDate3.getMonth() + 1; 
 
-        var currentYear = currentDate.getFullYear();
+        var currentYear = currentDate3.getFullYear();
 
+        var currentHour = currentDate3.getHours();
 
+        var currentMinute = currentDate3.getMinutes();
 
-        console.log("Current date: " + currentDay + "/" + currentMonth + "/" + currentYear);
+        console.log("Current date: " + currentDay + "/" + currentMonth + "/" + currentYear + "/" + currentHour + ":" + currentMinute );
 
-        logs.Logs.push("Logs created at: " + currentDay + "/" + currentMonth + "/" + currentYear);
+        logs.Logs.push("Logs created at: " + currentDay + "/" + currentMonth + "/" + currentYear + "/" + currentHour + ":" + currentMinute );
 
         var logs_string = JSON.stringify(logs);
   
@@ -42319,8 +42332,8 @@
     
         link.href = URL.createObjectURL(blob);
           
-     
-        link.download = "Logs.json";
+        
+        link.download = "Original-Logs-H/D/M/Y" + currentHour + "-" + currentDay + "-" + currentMonth + "-" + currentYear +".json";
           
    
         document.body.appendChild(link);
