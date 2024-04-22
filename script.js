@@ -42286,7 +42286,7 @@
         var currentHour = currentDate4.getHours();
 
    
-        link.download = "Logs-H/D/M/Y" + currentHour + "-" + currentDay + "-" + currentMonth + "-" + currentYear +".json";
+        link.download = "Logs-H-D-M-Y-" + currentHour + "-" + currentDay + "-" + currentMonth + "-" + currentYear +".json";
         
  
         document.body.appendChild(link);
@@ -42333,7 +42333,7 @@
         link.href = URL.createObjectURL(blob);
           
         
-        link.download = "Original-Logs-H/D/M/Y" + currentHour + "-" + currentDay + "-" + currentMonth + "-" + currentYear +".json";
+        link.download = "Original-Logs-H-D-M-Y-" + currentHour + "-" + currentDay + "-" + currentMonth + "-" + currentYear +".json";
           
    
         document.body.appendChild(link);
