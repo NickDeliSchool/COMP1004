@@ -6,7 +6,6 @@
         var logs = {"Logs" : []}; // Log object that will be used throughout the execution of the program and then downloaded
         var logs_string; // Glboal logs_string so it isn't affected 
 
-        let logsUploaded = false;
 
 
           document.getElementById('loginbutton').addEventListener('click', function() {
@@ -16,17 +15,7 @@
                     
                     ReadFile(LoginUser);
                 } 
-            });
 
-            document.getElementById('logUploadButton').addEventListener('click', function uploadlistener() {
-
-
-                if ( !logsUploaded && document.getElementById('jsonfile').files.length > 1) {
-                    
-                    UploadLogs();
-
-                    document.getElementById('logUploadButton').removeEventListener('click', function uploadlistener(){});
-                } 
             });
 
 
@@ -56,11 +45,6 @@
                 CloseVerification();
                 OverlayOffFunction();
 
-                if (logs_exist === true) {
-
-                    LogTracker(false, true);
-                }
-
                 console.log("Login complete");
 
             } else {
@@ -77,6 +61,12 @@
         var register_name = document.getElementById('Registername').value;
         var register_ID = document.getElementById('RegisterID').value;
         var register_password = document.getElementById('Registerpassword').value;
+
+        if((register_name === "")||(register_ID === "")||(register_password === "")) {
+            
+            alert("Please enter all details required to register");
+            return 0;
+    }
 
         // Strong password source: https://www.howtogeek.com/195430/how-to-create-a-strong-password-and-remember-it/
 
@@ -155,7 +145,8 @@
 
          if (!jsonfileselected) {
             
-            console.log("No file was selected");
+            alert("No record file was selected");
+            console.log("No record file was selected");
             return 0;
             
         }
@@ -379,7 +370,7 @@
             appointmentDetails.Email = email;
             appointmentDetails.AppointmentNotes = appointmentnotes;
 
-            LogTracker(true, false);
+            LogTracker();
 }
 
     function CloseAppointment(){
@@ -42235,7 +42226,7 @@
 
     }
 
-    function LogTracker(appointmentAdded,user_login) {
+    function LogTracker() {
 
        if (logs_exist === false) {
         
@@ -42244,72 +42235,32 @@
 
        }
 
-        var currentDate =  new Date();
+        var currentDate2 =  new Date();
 
-        var currentDay = currentDate.getDate();
+        var currentDay = currentDate2.getDate();
 
-        var currentMonth = currentDate.getMonth() + 1; 
+        var currentMonth = currentDate2.getMonth() + 1; 
 
-        var currentYear = currentDate.getFullYear();
+        var currentYear = currentDate2.getFullYear();
 
-        var currentHour = currentDate.getHours() + 1;
+        var currentHour = currentDate2.getHours() + 1;
 
-        var currentMinute = currentDate.getMinutes();
+        var currentMinute = currentDate2.getMinutes();
 
         console.log("Current date: " + currentDay + "/" + currentMonth + "/" + currentYear);
 
-       if ( appointmentAdded === true) {
 
-        logs.Logs.push("Appointment Added: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + ":" + currentMinute);
-        console.log("Appointment Log Added");
-
-
-       }
-
-       if (  user_login === true) {
-
-        logs.Logs.push("Login Occured: " + currentYear +  "/" + currentMonth + "/" + currentDay + "/" + currentHour + ":" + currentMinute);
-        console.log("Login Log Added");
-
-
-        
-       }
-    }
-
-    function UploadLogs(){
-
-        logs_exist = true;
-
-        const jsonfileselected2 = document.getElementById('jsonfile').files[1];
-
-         if (!jsonfileselected2) {
-            
-            console.log("No file was selected");
-            return 0;
-            
+        var appointmentLog = "Appointment Added/Edited On: " + currentYear + "/" + currentMonth + "/" + currentDay + "/" + currentHour + ":" + currentMinute + "  || Appointment Day/Hour-Selected: " + currentDate  + "/" + HourSelected;
+        if (!logs.Logs.includes(appointmentLog)) {
+            logs.Logs.push(appointmentLog);
+            console.log("Appointment Log Added");
         }
 
-        const jsonfilereader2 = new FileReader();
-
-        jsonfilereader2.onload = function(event2) {
-
-            try {
-
-                const jsonfiledata2 = JSON.parse(event2.target.result);
-
-                logs = jsonfiledata2; 
-
-                logsUploaded = true;
-
-            } catch (error) {
-                console.error('Error parsing JSON file:', error);
-            }
-        };
-
-        jsonfilereader2.readAsText(jsonfileselected2);
     }
 
-    document.getElementById('logDownloadButton').addEventListener('click',function (){
+    document.getElementById('logDownloadButton').addEventListener('click', DownloadLogs); 
+
+    function DownloadLogs() {
 
         logs_exist = true;
 
@@ -42334,9 +42285,9 @@
 
         document.body.removeChild(link);
 
-        document.getElementById('logUploadButton').removeEventListener('click', function (){});
+     
 
-    });
+    }
 
     function CreateLogs(){
 
