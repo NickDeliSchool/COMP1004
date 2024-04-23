@@ -34,7 +34,7 @@
     display: block; 
     display: grid; 
 
-    background-color: #87a970;
+    background-color: #5a6b99;
 
     top: 32% ;
     left: 41%;
@@ -64,7 +64,7 @@
         display:none; 
         display: grid; 
         
-        background-color: #87a970;
+        background-color: #5a6b99;
         
         top: 32% ;
         left: 41%;
@@ -109,7 +109,7 @@
     .Account {
         
         text-align: left;
-        background-color: #87a970;
+        background-color: #5a6b99;
         border-radius: 5px; 
         padding: 20px; 
         width: 325px; 
@@ -148,7 +148,7 @@
         
 
         text-align: left;
-        background-color: #87a970;
+        background-color: #5a6b99;
         border-radius: 5px;
         border: 1px solid black;
         margin-top: 10px; 
@@ -176,7 +176,7 @@
         font-family:'sans-serif';
         font-size: 25px;
         text-align: center;
-        background-color: #d1bd99;
+        background-color: #abc3d4;
         border-radius: 2px;
         border: 1px solid black;
     }
@@ -193,7 +193,7 @@
         
 
         text-align: center;
-        background-color: #d1bd99;
+        background-color: #abc3d4;
         border-radius: 2px;
         border: 1px solid black;
 
@@ -205,7 +205,7 @@
     .Hour {
 
         text-align:end;  
-        background-color: #d1bd99;
+        background-color: #abc3d4;
         border: 1px solid black;
         font-family:'sans-serif';
         cursor: pointer;
@@ -213,7 +213,7 @@
 
     .Hour:hover {
 
-        background-color: #b3a480;
+        background-color: #899bb3;
 
     }
 
@@ -223,7 +223,7 @@
 
         position: absolute;
 
-        background-color: #87a970;
+        background-color: #5a6b99;
 
         top: 25% ;
         left: 41%;
@@ -287,7 +287,7 @@
 
         position: absolute;
         font-weight: bolder;
-        background-color: #d1bd99;
+        background-color: #abc3d4;
         border-radius: 2px;
         border: 2px solid black; 
         padding: 175px 20px;
@@ -311,20 +311,20 @@
 
     .Left-day-button:hover {
 
-        background-color: #b3a480;
+        background-color: #899bb3;
         
     }
 
     .Right-day-button:hover { 
 
-        background-color: #b3a480;
+        background-color: #899bb3;
 
     }
 
     #savebutton {
 
         position: absolute;
-        background-color: #87a970;
+        background-color: #899bb3;
         padding: 10px; 
         top: 1%; 
         right: 3%; 
@@ -335,12 +335,20 @@
     #logDownloadButton {
 
         position: absolute;
-        background-color: #87a970;
+        background-color: #899bb3;
         padding: 10px; 
         top: 8%; 
         right:3%; 
     
     
+    }
+
+    #savebutton:hover,
+    #logDownloadButton:hover {
+
+        background-color: #5a6b99;
+        cursor: pointer;
+
     }
 
     @media screen and (max-width: 1360px)  {
