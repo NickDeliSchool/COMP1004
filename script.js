@@ -66,7 +66,7 @@
             
             alert("Please enter all details required to register");
             return 0;
-    }
+        }
 
         // Strong password source: https://www.howtogeek.com/195430/how-to-create-a-strong-password-and-remember-it/
 
