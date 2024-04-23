@@ -281,44 +281,38 @@
     }
 
 
-    .Day-button {
 
-
-        display: flex;
-        justify-content: space-between;
-        
-        margin-top: 100px; 
-        margin-right: 95px; 
-        margin-left: 450px;
-        
-    }
-
-
+    .Right-day-button,
     .Left-day-button {
 
+        position: absolute;
         font-weight: bolder;
         background-color: #d1bd99;
         border-radius: 2px;
         border: 2px solid black; 
         padding: 175px 20px;
         cursor: pointer; 
-    
+        top: 30%; 
+
     }
+
+    .Right-day-button{
+
+        right: 8%;
+
+    }
+
+    .Left-day-button {
+
+        left: 30%;
+
+    }
+
 
     .Left-day-button:hover {
 
         background-color: #b3a480;
         
-    }
-
-    .Right-day-button {
-
-        font-weight: bolder;
-        background-color: #d1bd99;
-        border-radius: 2px;
-        border: 2px solid black; 
-        padding: 175px 20px; 
-        cursor: pointer; 
     }
 
     .Right-day-button:hover { 
@@ -348,6 +342,24 @@
     
     
     }
+
+    @media screen and (max-width: 1360px)  {
+        
+
+        .Right-day-button{
+
+            right: 1%;
+    
+        }
+    
+        .Left-day-button {
+    
+            left: 30%;
+    
+        }
+    
+
+      }
 
 
 
