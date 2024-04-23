@@ -42283,7 +42283,7 @@
 
         var currentYear = currentDate4.getFullYear();
 
-        var currentHour = currentDate4.getHours();
+        var currentHour = currentDate4.getHours() + 1;
 
    
         link.download = "Logs-H-D-M-Y-" + currentHour + "-" + currentDay + "-" + currentMonth + "-" + currentYear +".json";
@@ -42314,7 +42314,7 @@
 
         var currentYear = currentDate3.getFullYear();
 
-        var currentHour = currentDate3.getHours();
+        var currentHour = currentDate3.getHours() + 1;
 
         var currentMinute = currentDate3.getMinutes();
 
