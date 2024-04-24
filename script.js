@@ -193,7 +193,7 @@
             document.getElementById('dayheader').textContent=data.User.DateLastOpened;
             document.getElementById('AccountName').textContent=data.User.Username;
             document.getElementById('AccountID').textContent=data.User.ID;
-            document.getElementById('editNotes').textContent=data.User.Notes;
+            document.getElementById('editNotes').value=data.User.Notes;
             console.log("Successfully loaded site");
 
 
@@ -205,30 +205,31 @@
 
     document.getElementById('savebutton').addEventListener('click', function SaveButtonData(){
 
-  
-         var jsonString = JSON.stringify(data, null, 2);
+        data.User.Notes = document.getElementById('editNotes').value;
+
+        var jsonString = JSON.stringify(data, null, 2);
 
         var encryptedJson2 = CryptoJS.AES.encrypt(jsonString, "password");
 
-  
-         var blob = new Blob([encryptedJson2], { type: "application/json" });
-         
-   
-         var link = document.createElement("a");
-         
-   
-         link.href = URL.createObjectURL(blob);
-         
-    
-         link.download = "Record.json";
-         
-  
-         document.body.appendChild(link);
-         
-  
-         link.click();
 
-         document.body.removeChild(link);
+        var blob = new Blob([encryptedJson2], { type: "application/json" });
+        
+
+        var link = document.createElement("a");
+        
+
+        link.href = URL.createObjectURL(blob);
+        
+
+        link.download = "Record.json";
+        
+
+        document.body.appendChild(link);
+        
+
+        link.click();
+
+        document.body.removeChild(link);
 
 
 
