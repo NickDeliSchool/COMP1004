@@ -8,40 +8,40 @@
 
 
 
-          document.getElementById('loginbutton').addEventListener('click', function() {
+          document.getElementById('loginbutton').addEventListener('click', function() { // Event listener for when the login button is clicked
 
 
-                if (document.getElementById('jsonfile').files.length > 0) {
+                if (document.getElementById('jsonfile').files.length > 0) { // Only if a file has been selected
                     
-                    ReadFile(LoginUser);
+                    ReadFile(LoginUser); // ReadFile with LoginUser as the callback parameter
                 } 
 
             });
 
 
-    document.getElementById('registerbutton').addEventListener('click', RegisterUser);
+    document.getElementById('registerbutton').addEventListener('click', RegisterUser); // Register user if register button is clicked
 
-    function LoginUser(jsonfiledata) {
+    function LoginUser(jsonfiledata) { // Function to allow for verification, specifically login
 
-        var name = document.getElementById('name').value;
+        var name = document.getElementById('name').value; // Get the values from the site
         var ID = document.getElementById('ID').value;
         var password = document.getElementById('password').value;
 
-        var jsonusername = jsonfiledata.User.Username;
+        var jsonusername = jsonfiledata.User.Username; // Get the values from the loaded json file data
         var jsonID = jsonfiledata.User.ID;
         var jsonpassword = jsonfiledata.User.Password;
 
         console.log("All values have been retrieved from the json file")
 
-        if((name === "")||(ID === "")||(password === "")) {
+        if((name === "")||(ID === "")||(password === "")) { // If any details are empty the alert
             
                 alert("Please enter all details required to login");
                 return 0;
         }
 
-        if (CheckDetails(name, ID) === true) {
+        if (CheckDetails(name, ID) === true) { // Check if the name and ID are appropriate data 
 
-            if ((name === jsonusername)&&(ID === jsonID)&&(password === jsonpassword)) {
+            if ((name === jsonusername)&&(ID === jsonID)&&(password === jsonpassword)) { // Compare the necessary verification info
                 CloseVerification();
                 OverlayOffFunction();
 
@@ -56,21 +56,19 @@
     }
 
 
-    function RegisterUser(){
+    function RegisterUser(){ // Function to ensure proper user registration process 
 
-        var register_name = document.getElementById('Registername').value;
+        var register_name = document.getElementById('Registername').value; // Retrieve values from the text inputs
         var register_ID = document.getElementById('RegisterID').value;
         var register_password = document.getElementById('Registerpassword').value;
 
-        if((register_name === "")||(register_ID === "")||(register_password === "")) {
+        if((register_name === "")||(register_ID === "")||(register_password === "")) { // If statement ensuring that all necessary details are entered
             
             alert("Please enter all details required to register");
             return 0;
         }
 
-        // Strong password source: https://www.howtogeek.com/195430/how-to-create-a-strong-password-and-remember-it/
-
-        if (register_password.length < 12) {
+        if (register_password.length < 12) { // If statement making sure the password is equal or more than 12 characters long
 
             console.log("Password is less than 12 characters long");
             alert("Password needs to be 12 or more characters long");
@@ -79,18 +77,19 @@
         }
 
         const regex_check_password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$/; 
-        // Regular expression link found: https://stackoverflow.com/questions/5142103/regex-to-validate-password-strength
+        // Regular expression adapted from:  https://stackoverflow.com/questions/5142103/regex-to-validate-password-strength
         
         if (!regex_check_password.test(register_password)) {
 
 
 
-            console.log("Password doesn't meet the appropriate requirements");
+            console.log("Password doesn't meet the appropriate requirements"); 
             alert("Password should contain: \n\u2022 At least a capital letter \n\u2022 at least a small letter \n\u2022 at least a number \n\u2022 at least a special character \n\u2022 a minimum length of 12");
+            // Alert detailing the necessary password prerequisites
             return 0;
         }
 
-        if (CheckDetails(register_name, register_ID) === true) {
+        if (CheckDetails(register_name, register_ID) === true) { // Running CheckDetails to make sure the name and ID are appropriate and of invalid form
 
             if((register_name === "")||(register_ID === "")||(register_password === "")) {
                 
@@ -98,22 +97,22 @@
                 return 0;
             }
             
-            CreateRecordJson(register_name,register_ID,register_password);
-            LoadSite();
-            CloseVerification();
-            OverlayOffFunction();
-            CreateLogs();
+            CreateRecordJson(register_name,register_ID,register_password); // Create the record after registration
+            LoadSite(); // Load the site
+            CloseVerification(); // Close the verification windows
+            OverlayOffFunction(); //Take off the overlay
+            CreateLogs(); // Create the logs
         }
     }
 
-    function CheckDetails(NameCheck, IDCheck) {
+    function CheckDetails(NameCheck, IDCheck) { // Function to check the name and the ID validity
 
 
         const regex_check_Name = /^[a-zA-Z]+$/; // Regular expression for finding an alphabetical character
 
-        // Source: https://regex101.com/
+ 
 
-        if (!regex_check_Name.test(NameCheck)) {
+        if (!regex_check_Name.test(NameCheck)) { // Compare the regular expression with the name
 
             alert("Name must only have alphabetical characters");
             console.log("Name must only have alphabetical characters");
@@ -123,9 +122,8 @@
 
         const regex_check_ID = /\D+/; // Regular expression to find anything othee than a decimal/digit.
 
-        // Source: https://regex101.com/
 
-        if (regex_check_ID.test(IDCheck)) {
+        if (regex_check_ID.test(IDCheck)) { // Compare the regular expression witht he ID
 
             alert("ID must only have numerical characters");
             console.log("Name must only have numerical characters");
@@ -139,11 +137,11 @@
 
     }
 
-    function ReadFile(callback) {
+    function ReadFile(callback) { // Function to read the file utilizing callback to the LoginUser() function
 
-        const jsonfileselected = document.getElementById('jsonfile').files[0];
+        const jsonfileselected = document.getElementById('jsonfile').files[0]; // Fecth selected file
 
-         if (!jsonfileselected) {
+         if (!jsonfileselected) { // If no file is selected
             
             alert("No record file was selected");
             console.log("No record file was selected");
@@ -151,32 +149,32 @@
             
         }
 
-        const jsonfilereader = new FileReader();
+        const jsonfilereader = new FileReader(); // Create new FileReader object
 
-        jsonfilereader.onload = function(event) {
+        jsonfilereader.onload = function(event) { 
 
             try {
 
-                var encryptedJson = event.target.result;
+                var encryptedJson = event.target.result; // Retrieve the data 
 
                 console.log("Ecnrypted JSON collected");
                 
-                var decryptedJson = CryptoJS.AES.decrypt(encryptedJson, "password").toString(CryptoJS.enc.Utf8);
+                var decryptedJson = CryptoJS.AES.decrypt(encryptedJson, "password").toString(CryptoJS.enc.Utf8); // Decrypt data 
 
-                const jsonfiledata = JSON.parse(decryptedJson);
+                const jsonfiledata = JSON.parse(decryptedJson); // Parse decrypted data 
 
 
                 console.log("Callback initiated");
-                callback(jsonfiledata);
+                callback(jsonfiledata); // Callback to LoginUser() function, passing the jsonfiledata as a parameter to it
 
 
                 console.log("Data = jsonfiledata");
-                data = jsonfiledata; 
+                data = jsonfiledata; // Set data equal to the file data 
 
 
-                LoadSite();
+                LoadSite(); // Load the site
 
-            } catch (error) {
+            } catch (error) { // Catch in case of error
                 console.error('Error parsing JSON file:', error);
             }
         };
@@ -185,7 +183,7 @@
     }
 
 
-    function LoadSite(){
+    function LoadSite(){ // Load necessary text fields
     
       
 
@@ -203,39 +201,40 @@
 
     
 
-    document.getElementById('savebutton').addEventListener('click', function SaveButtonData(){
+    document.getElementById('savebutton').addEventListener('click', function SaveButtonData(){ // Function to save data
 
-        data.User.Notes = document.getElementById('editNotes').value;
+        data.User.Notes = document.getElementById('editNotes').value; // Fetch the notes data
 
-        var jsonString = JSON.stringify(data, null, 2);
+        var jsonString = JSON.stringify(data, null, 2); // Stores the json data as a string
 
-        var encryptedJson2 = CryptoJS.AES.encrypt(jsonString, "password");
+        var encryptedJson2 = CryptoJS.AES.encrypt(jsonString, "password"); // Encrypts it 
 
 
-        var blob = new Blob([encryptedJson2], { type: "application/json" });
+        var blob = new Blob([encryptedJson2], { type: "application/json" }); // Creates a blob in order to put the data in a file
         
 
-        var link = document.createElement("a");
+        var link = document.createElement("a"); // Create an anchor element for the blob
         
 
-        link.href = URL.createObjectURL(blob);
+        link.href = URL.createObjectURL(blob); // Create link pointing to the blob
         
 
-        link.download = "Record.json";
+        link.download = "Record.json"; // Name link
         
 
-        document.body.appendChild(link);
+        document.body.appendChild(link); // Create link option
         
 
-        link.click();
+        link.click(); // Force click
 
-        document.body.removeChild(link);
+        document.body.removeChild(link); // Remove link
 
 
 
     });
 
-    function switchRegister_and_Login(LoginForm,RegisterForm) {
+    function switchRegister_and_Login(LoginForm,RegisterForm) { // Function that ensures the login form and registration form
+        // switch when the relating buttons are clicked
 
         if (document.getElementById(LoginForm).style.display == 'block') {
 
@@ -284,7 +283,7 @@
         
         }
 
-    function CloseVerification(){
+    function CloseVerification(){ // Function to close the verification forms
 
 
             document.getElementById('RegisterForm').style.display = 'none';
@@ -294,35 +293,36 @@
             
         }
 
-    function OverlayOnFunction() {
+    function OverlayOnFunction() { // Function to employ the overlay in order to cover the site before verification 
 
             document.getElementById('Overlay').style.display = 'block';
 
 
         }
 
-    function OverlayOffFunction() {
+    function OverlayOffFunction() { // Function to remove the overlay
 
 
             document.getElementById('Overlay').style.display = 'none';
 
         }
 
-    function OpenAppointment(HourSelectedHTML){
+    function OpenAppointment(HourSelectedHTML){ // Function to open the appointment form
             
             document.getElementById('AppointmentForm').style.display = 'block';
 
             HourSelected = HourSelectedHTML;
 
-            var current_date_index = FindCurrentDateIndex();
+            var current_date_index = FindCurrentDateIndex(); // Use this function to locate the the current date 
             currentDate = Object.keys(data.User.Years.Dates)[current_date_index];
 
             console.log("Current date " + currentDate);
 
-            appointmentDetails = data.User.Years.Dates[currentDate][HourSelected];
+            appointmentDetails = data.User.Years.Dates[currentDate][HourSelected]; 
 
             console.log("Current appointment loaded in: " + currentDate + "  " + HourSelected);
 
+            // Load values of the specified appointment
 
                 document.getElementById('PatientName').value = appointmentDetails.PatientName || "";
 
@@ -341,7 +341,7 @@
                 document.getElementById('EditAppointmentNotes').value = appointmentDetails.AppointmentNotes|| "" ;
 
                 
-        document.getElementById("addAppointmentButton").addEventListener('click', function() {
+        document.getElementById("addAppointmentButton").addEventListener('click', function() { // Listener for the add/edit appointment button
                 
             console.log("Added the appointment" + currentDate + "  " + HourSelected);
             AddAppointment(appointmentDetails);
@@ -351,8 +351,9 @@
 
     }
 
-    function AddAppointment(appointmentDetails) {
+    function AddAppointment(appointmentDetails) { // Function to add the appointment 
 
+        
         var patient_name = document.getElementById('PatientName').value;
         var DOB = document.getElementById('DOB').value;
         var gender = document.getElementById('Gender').value;
@@ -362,6 +363,7 @@
         var email = document.getElementById('Email').value;
         var appointmentnotes = document.getElementById('EditAppointmentNotes').value;
 
+        // Store the values from the html inputs into the data variable using appointmentDetails abbreviation
             appointmentDetails.PatientName = patient_name;
             appointmentDetails.DateOfBirth = DOB;
             appointmentDetails.Gender = gender;
@@ -371,25 +373,25 @@
             appointmentDetails.Email = email;
             appointmentDetails.AppointmentNotes = appointmentnotes;
 
-            LogTracker();
+            LogTracker(); // Log the appointment 
 }
 
-    function CloseAppointment(){
+    function CloseAppointment(){ // Function to close the appointment form 
 
             document.getElementById('AppointmentForm').style.display = 'none';
 
 
         }
 
-    function FindCurrentDateIndex() {
-
+    function FindCurrentDateIndex() { // Function that finds the current date displayed on the screen
+ 
         var dates = Object.keys(data.User.Years.Dates);
 
-     for (var i = 0; i < dates.length; i++){
+     for (var i = 0; i < dates.length; i++){ // For loop that compares that searches for the DateLastOpened
 
         if (data.User.DateLastOpened === dates[i]) {
 
-            return i;
+            return i; // when found return the date 
 
         }
      }
@@ -398,7 +400,7 @@
 
     }
 
-    function ChangeDateBackwards() {
+    function ChangeDateBackwards() { // Function to iterate through the days backwards
 
 
         var current_date_index; 
@@ -422,7 +424,7 @@
 
     }
 
-    function ChangeDateForwards() {
+    function ChangeDateForwards() { // Function to iterate through the days fowards 
 
         var current_date_index; 
         current_date_index = FindCurrentDateIndex();
@@ -449,9 +451,10 @@
     }
 
 
-    function CreateRecordJson(register_name,register_ID,register_password) {
+    function CreateRecordJson(register_name,register_ID,register_password) { // Function to create the json record
+        // when user initially registers 
 
-
+        // json data needed to have a record
         var jsondata = { 
         
             "User": {
@@ -42199,44 +42202,44 @@
         data = jsondata;
 
 
-        var jsonString = JSON.stringify(data, null, 2);
+        var jsonString = JSON.stringify(data, null, 2); // Stores the data into a string
 
-        var encryptedJson = CryptoJS.AES.encrypt(jsonString, "password");
+        var encryptedJson = CryptoJS.AES.encrypt(jsonString, "password"); // Encrypts the string
 
-        var blob = new Blob([encryptedJson], { type: "application/json" });
+        var blob = new Blob([encryptedJson], { type: "application/json" }); // Create blob object
 
 
-        var link = document.createElement("a");
+        var link = document.createElement("a"); // Create anchor element
         
 
-        link.href = URL.createObjectURL(blob);
+        link.href = URL.createObjectURL(blob); // Create link pointing to the blob
         
 
-        link.download = "Record.json";
+        link.download = "Record.json"; // Defining download name
         
 
-        document.body.appendChild(link);
+        document.body.appendChild(link); // Initialize link
         
 
-        link.click();
+        link.click(); // Force click
 
-        document.body.removeChild(link);
+        document.body.removeChild(link); // Remove link 
 
 
 
 
     }
 
-    function LogTracker() {
+    function LogTracker() { // Function that handles logging when an appointment has been added
 
        if (logs_exist === false) {
         
-        console.log("Log tracker won't start since no log file has been uploaded or no logs created");
+        console.log("Log tracker won't start since no logs created");
 
 
        }
 
-        var currentDate2 =  new Date();
+        var currentDate2 =  new Date(); // Get date object and its components
 
         var currentDay = currentDate2.getDate();
 
@@ -42250,7 +42253,7 @@
 
         console.log("Current date: " + currentDay + "/" + currentMonth + "/" + currentYear);
 
-
+       // If the log doesn't alreadu exist, push to the logs variable 
         var appointmentLog = "Appointment Added/Edited On: " + currentDay + "/" + currentMonth + "/" + currentYear + "/" + currentHour + ":" + currentMinute + "  || Appointment Day/Hour-Selected: " + currentDate  + "/" + HourSelected;
         if (!logs.Logs.includes(appointmentLog)) {
             logs.Logs.push(appointmentLog);
@@ -42259,24 +42262,26 @@
 
     }
 
-    document.getElementById('logDownloadButton').addEventListener('click', DownloadLogs); 
+    document.getElementById('logDownloadButton').addEventListener('click', DownloadLogs); // Event listener in case the 
+    // download logs button is clicked
 
     function DownloadLogs() {
 
         logs_exist = true;
 
-        var logs_string = JSON.stringify(logs);
+        var logs_string = JSON.stringify(logs); // store logs in a a string
 
-        var blob = new Blob([logs_string], { type: "application/json" });
+        var blob = new Blob([logs_string], { type: "application/json" }); // create blob object
         
   
-        var link = document.createElement("a");
+        var link = document.createElement("a"); // create anchor element
         
   
-        link.href = URL.createObjectURL(blob);
+        link.href = URL.createObjectURL(blob); // create link pointing to blob
         
 
-        var currentDate4 =  new Date();
+        var currentDate4 =  new Date(); // Get date object and its components
+
 
         var currentDay = currentDate4.getDate();
 
@@ -42286,16 +42291,16 @@
 
         var currentHour = currentDate4.getHours() + 1;
 
-   
+        // Create file name that contains the components retrieve from the date object
         link.download = "Logs-H-D-M-Y-" + currentHour + "-" + currentDay + "-" + currentMonth + "-" + currentYear +".json";
         
  
-        document.body.appendChild(link);
+        document.body.appendChild(link); // Initialize link
         
  
-        link.click();
+        link.click(); // Force click to download 
 
-        document.body.removeChild(link);
+        document.body.removeChild(link); // Remove link
 
      
 
@@ -42305,9 +42310,9 @@
 
         logs_exist = true;
 
-        logs = { "Logs" : [] };
+        logs = { "Logs" : [] }; // Initialize logs 
 
-        var currentDate3 =  new Date();
+        var currentDate3 =  new Date(); // Get date object and its components
 
         var currentDay = currentDate3.getDate();
 
@@ -42323,25 +42328,25 @@
 
         logs.Logs.push("Logs created at: " + currentDay + "/" + currentMonth + "/" + currentYear + "/" + currentHour + ":" + currentMinute );
 
-        var logs_string = JSON.stringify(logs);
+        var logs_string = JSON.stringify(logs); // store logs in string
   
-        var blob = new Blob([logs_string], { type: "application/json" });
+        var blob = new Blob([logs_string], { type: "application/json" }); // create blob
           
     
-        var link = document.createElement("a");
+        var link = document.createElement("a"); // create anchor element 
           
     
-        link.href = URL.createObjectURL(blob);
+        link.href = URL.createObjectURL(blob); // link that points to blob
           
-        
+        // Create file name that contains the components retrieve from the date object
         link.download = "Original-Logs-H-D-M-Y-" + currentHour + "-" + currentDay + "-" + currentMonth + "-" + currentYear +".json";
           
    
-        document.body.appendChild(link);
+        document.body.appendChild(link); // Initialize link
           
    
-        link.click();
+        link.click(); // Force click
   
-        document.body.removeChild(link);
+        document.body.removeChild(link); // Remove link
 
     }
